@@ -58,9 +58,7 @@ class Service
         $route = $this->sentinel->route($serverName, $route);
         $uri = $this->getUri($serverName, $route[1]);
 
-        $this->client->request($route[0], $uri, $parameters, $options);
-
-        return $this;
+        return $this->client->request($route[0], $uri, $parameters, $options);
     }
 
     /**
