@@ -16,6 +16,8 @@ class Service
     const SWOOLE_CLIENT = 'swoole';
     const GUZZLE_CLIENT = 'guzzle';
 
+    const TIMEOUT = 'timeout';
+
     /**
      * @var ClientInterface
      */
@@ -53,6 +55,13 @@ class Service
         return $this;
     }
 
+    /**
+     * @param string $serverName
+     * @param string $route
+     * @param null $parameters
+     * @param array $options
+     * @return ClientInterface|Response
+     */
     public function request(string $serverName, string $route, $parameters = null, array $options = [])
     {
         $route = $this->sentinel->route($serverName, $route);
